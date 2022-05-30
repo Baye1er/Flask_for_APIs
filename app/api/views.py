@@ -1,7 +1,8 @@
 import requests
 from flask import Blueprint, jsonify, request
-from . import db
-from .models import User, UserTrash, Photo, PhotoTrash, Post, PostTrash, Comment, CommentTrash, Todo, TodoTrash, Album, AlbumTrash
+from .. import db
+from .models import User, UserTrash, Photo, PhotoTrash, Post, PostTrash, Comment, \
+    CommentTrash, Todo, TodoTrash, Album, AlbumTrash
 
 api = Blueprint('api', __name__)
 
@@ -91,22 +92,22 @@ def update_user(id):
 def delete_user(id):
     user = User.query.filter_by(id=id).first_or_404()
     user_trash = UserTrash(
-                            id=user.id,
-                            name=user.name,
-                            username=user.username,
-                            email=user.email,
-                            street=user.street,
-                            suite=user.suite,
-                            city=user.city,
-                            zipcode=user.zipcode,
-                            lat=user.lat,
-                            lng=user.lng,
-                            phone=user.phone,
-                            website=user.website,
-                            company_name=user.company_name,
-                            company_catchPhrase=user.company_catchPhrase,
-                            company_bs=user.company_bs
-                            )
+        id=user.id,
+        name=user.name,
+        username=user.username,
+        email=user.email,
+        street=user.street,
+        suite=user.suite,
+        city=user.city,
+        zipcode=user.zipcode,
+        lat=user.lat,
+        lng=user.lng,
+        phone=user.phone,
+        website=user.website,
+        company_name=user.company_name,
+        company_catchPhrase=user.company_catchPhrase,
+        company_bs=user.company_bs
+    )
     db.session.add(user_trash)
     db.session.commit()
 
@@ -130,22 +131,22 @@ def get_user_trash():
 def restore_user(id):
     user = UserTrash.query.filter_by(id=id).first_or_404()
     user_restore = User(
-                        id=user.id,
-                        name=user.name,
-                        username=user.username,
-                        email=user.email,
-                        street=user.street,
-                        suite=user.suite,
-                        city=user.city,
-                        zipcode=user.zipcode,
-                        lat=user.lat,
-                        lng=user.lng,
-                        phone=user.phone,
-                        website=user.website,
-                        company_name=user.company_name,
-                        company_catchPhrase=user.company_catchPhrase,
-                        company_bs=user.company_bs
-                        )
+        id=user.id,
+        name=user.name,
+        username=user.username,
+        email=user.email,
+        street=user.street,
+        suite=user.suite,
+        city=user.city,
+        zipcode=user.zipcode,
+        lat=user.lat,
+        lng=user.lng,
+        phone=user.phone,
+        website=user.website,
+        company_name=user.company_name,
+        company_catchPhrase=user.company_catchPhrase,
+        company_bs=user.company_bs
+    )
     db.session.add(user_restore)
     db.session.commit()
 
@@ -401,10 +402,10 @@ def update_albums(id):
 def delete_album(id):
     album = Album.query.filter_by(id=id).first_or_404()
     album_trash = AlbumTrash(
-                            userId=album.userId,
-                            id=album.id,
-                            title=album.title
-                            )
+        userId=album.userId,
+        id=album.id,
+        title=album.title
+    )
     db.session.add(album_trash)
     db.session.commit()
 
@@ -428,10 +429,10 @@ def get_album_trash():
 def restore_album(id):
     album = AlbumTrash.query.filter_by(id=id).first_or_404()
     album_restore = Album(
-                          userId=album.userId,
-                          id=album.id,
-                          title=album.title
-                          )
+        userId=album.userId,
+        id=album.id,
+        title=album.title
+    )
     db.session.add(album_restore)
     db.session.commit()
 
@@ -498,12 +499,12 @@ def update_photos(id):
 def delete_photos(id):
     photo = Photo.query.filter_by(id=id).first_or_404()
     photo_trash = PhotoTrash(
-                            albumId=photo.albumId,
-                            id=photo.id,
-                            title=photo.title,
-                            url=photo.url,
-                            thumbnailUrl=photo.thumbnailUrl
-                            )
+        albumId=photo.albumId,
+        id=photo.id,
+        title=photo.title,
+        url=photo.url,
+        thumbnailUrl=photo.thumbnailUrl
+    )
     db.session.add(photo_trash)
     db.session.commit()
 
@@ -527,12 +528,12 @@ def get_photo_trash():
 def restore_photo(id):
     photo = PhotoTrash.query.filter_by(id=id).first_or_404()
     photo_restore = Post(
-                        albumId=photo.albumId,
-                        id=photo.id,
-                        title=photo.title,
-                        url=photo.url,
-                        thumbnailUrl=photo.thumbnailUrl
-                        )
+        albumId=photo.albumId,
+        id=photo.id,
+        title=photo.title,
+        url=photo.url,
+        thumbnailUrl=photo.thumbnailUrl
+    )
     db.session.add(photo_restore)
     db.session.commit()
 
@@ -593,10 +594,10 @@ def update_todos(id):
 def delete_todo(id):
     todo = Todo.query.filter_by(id=id).first_or_404()
     todo_trash = TodoTrash(
-                            userId=todo.userId,
-                            id=todo.id,
-                            title=todo.title,
-                           )
+        userId=todo.userId,
+        id=todo.id,
+        title=todo.title,
+    )
     db.session.add(todo_trash)
     db.session.commit()
 
@@ -619,10 +620,10 @@ def get_todo_trash():
 def restore_todo(id):
     todo = TodoTrash.query.filter_by(id=id).first_or_404()
     todo_restore = Todo(
-                        userId=todo.userId,
-                        id=todo.id,
-                        title=todo.title,
-                        )
+        userId=todo.userId,
+        id=todo.id,
+        title=todo.title,
+    )
     db.session.add(todo_restore)
     db.session.commit()
 
@@ -654,7 +655,7 @@ def fill_users():
             geo = address['geo']
             company = one_user['company']
 
-            user = User(id=one_user['id'],
+            user = User(id=one_user['id'], # .replace(11+i) and all over the others rows
                         name=one_user['name'],
                         username=one_user['username'],
                         email=one_user['email'],
@@ -668,7 +669,8 @@ def fill_users():
                         website=one_user['website'],
                         company_name=company['name'],
                         company_catchPhrase=company['catchPhrase'],
-                        company_bs=company['bs']
+                        company_bs=company['bs'],
+                        password='Default'
                         )
 
             db.session.add(user)

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block page_content %}
+<head>
+    <script type="text/javascript" language="javascript">
+        $(document).ready(function(){
+            var dataTable = $('#sample_data').DataTable();
+
+            $('#sample_data').editable({
+                container:'body',
+                selector:'td.name',
+                url:'/update_user/<id>',
+                title: 'Name',
+                type:'POST',
+                validate: function(value){
+                    if($.trim(value) == ' ')
+                    {
+                        return 'This field is required';
+                    }
+                }
+            });
+
+             $('#sample_data').editable({
+                container:'body',
+                selector:'td.username',
+                url:'/update_user/<id>',
+                title: 'Username',
+                type:'POST',
+                validate: function(value){
+                    if($.trim(value) == ' ')
+                    {
+                        return 'This field is required';
+                    }
+                }
+            });
+
+             $('#sample_data').editable({
+                container:'body',
+                selector:'td.email',
+                url:'/update_user/<id>',
+                title: 'Email',
+                type:'POST',
+                validate: function(value){
+                    if($.trim(value) == ' ')
+                    {
+                        return 'This field is required';
+                    }
+                }
+            });
+
+             $('#sample_data').editable({
+                container:'body',
+                selector:'td.city',
+                url:'/update_user/<id>',
+                title: 'City',
+                type:'POST',
+                validate: function(value){
+                    if($.trim(value) == ' ')
+                    {
+                        return 'This field is required';
+                    }
+                }
+            });
+
+        });
+    </script>
+</head>
+<body>
+    <div class="add-user">
+        <a class="btn btn-default" href="{{ url_for('.new_user') }}">+ User</a>
+    </div>
+    <h2>List of Users</h2>
+    <br>
+    <div class="panel">
+        <table id="sample_data" class="table table-hover table-dark">
+            <thead>
+            <tr>
+                <!-- Your Columns HERE -->
+                <th scope="col">Name</th>
+                <th scope="col">Username</th>
+                <th scope="col">Email</th>
+                <th scope="col">City</th>
+                <th scope="col">Options</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- Your rows inside the table HERE: -->
+            {% for user in users %}
+            <tr>
+                <td data-name="name" class="name" data-type="text">{{ user.name }}</td>
+                <td data-name="username" class="username" data-type="text">{{ user.username }}</td>
+                <td data-name="email" class="email" data-type="text">{{ user.email }}</td>
+                <td data-name="city" class="city" data-type="text">{{ user.city }}</td>
+                <td>
+                    <button class="btn btn-outline btn-info">Edit</button>
+                    <button class="btn btn-outline btn-success">Delete</button>
+                </td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
+{% endblock %}
