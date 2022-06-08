@@ -5,7 +5,7 @@ from flask_bootstrap import Bootstrap
 from os import path
 from flask_login import LoginManager
 from app.api.models import User
-
+from flask_cors import CORS
 
 db = SQLAlchemy()
 migrate = Migrate()
@@ -14,6 +14,7 @@ bootstrap = Bootstrap()
 
 def create_app():
     app = Flask(__name__)
+    CORS(app)
     app.config['SECRET_KEY'] = 'Too very hard to guess.'
     app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://groupe6:groupe6@localhost/apibase'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -24,6 +25,7 @@ def create_app():
 
     from .api.views import api  # import the blueprint package
     from .web.views import web
+    from .api.users_views import api
 
     app.register_blueprint(api)
     app.register_blueprint(web, url_prefix='/web')
@@ -32,7 +34,7 @@ def create_app():
     create_database(app)
 
     login_manager = LoginManager()
-    login_manager.login_view = 'web.views.home'
+    login_manager.login_view = 'web.home'
     login_manager.init_app(app)
 
     @login_manager.user_loader

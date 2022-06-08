@@ -1,0 +1,154 @@
+    body {
+        background: linear-gradient(to right, white, rgb(120, 105, 107));
+    }
+    
+    .navbar {
+        padding: 50px 0;
+        overflow: hidden;
+        background-color: rgb(120, 105, 107);
+        border-bottom: 2px solid #042a46;
+        border-top: 2px solid #042a46;
+        margin-bottom: 20px;
+    }
+    
+    a.navbar-brand {
+        text-decoration: none;
+        font-weight: 600px;
+        text-transform: uppercase;
+        font-size: 40px;
+        font-weight: bold;
+        color: white;
+        margin-left: 30px;
+    }
+    
+    .collapse {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 40px;
+    }
+    
+    a.nav-link {
+        color: white;
+        padding: 10px 30px;
+        text-decoration: none;
+    }
+    
+    li.active {
+        list-style: none;
+    }
+    
+    h1 {
+        text-align: center;
+    }
+    
+    h1 {
+        Font-family: Inter;
+        Font-style: Bold;
+        Font-size: 50px;
+        Line-height: 48px;
+        Line-height: 100%;
+        text-align: Center;
+        vertical-align: Top;
+        Fill: Solid;
+        color: white;
+    }
+    
+    table.table {}
+    
+    td,
+    input,
+    tr {
+        text-align: center;
+        padding: 12px;
+        cursor: pointer
+    }
+    /* tr:nth-child(even) {
+    background-color: #f2f2f2;
+} */
+    
+    #table-responsive {
+        overflow-x: auto;
+    }
+    
+    thead {
+        margin: none;
+        color: rgb(99, 89, 89);
+        /* width: 50%; */
+    }
+    
+    input {
+        border: none;
+        background: linear-gradient(to right, white, rgb(120, 105, 107));
+    }
+    
+    button {
+        border-radius: 50px;
+        background: linear-gradient(to right, white, rgb(120, 105, 107));
+        cursor: pointer;
+    }
+    
+    .btnDetailNewUser {
+        border-radius: 50px;
+        background: linear-gradient(to right, white, rgb(222, 76, 95));
+        cursor: pointer
+    }
+    
+    .btnAnnullNewUser {
+        border-radius: 50px;
+        background: linear-gradient(to right, white, rgb(207, 91, 106));
+        cursor: pointer
+    }
+    
+    user-body {
+        width: 50px;
+    }
+    
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        width: 100%;
+        border: none;
+        margin: 0 auto;
+        background: linear-gradient(to right, white, rgb(120, 105, 107));
+        width: 825px;
+    }
+    
+    tbody {
+        position: absolute;
+        overflow-y: scroll;
+        overflow: auto;
+        max-height: 33vh;
+    }
+    
+    .newUser,
+    .detailUserDiv {
+        background: linear-gradient(to right, white, rgb(120, 105, 107));
+        height: 500px;
+        position: absolute;
+        margin: 0 auto;
+        left: 320px;
+        width: 70%;
+        top: -500px;
+        transition: 0.5s;
+    }
+    
+    .edit_register {
+        background: linear-gradient(to right, white, rgb(120, 105, 107));
+        height: 35px;
+    }
+    
+    .btnNewUser,
+    .addNewUser_btn {
+        height: 50px;
+        width: 130px;
+        border: none;
+        background: linear-gradient(to right, rgb(120, 105, 107), white);
+    }
+    /* .scroll {
+        margin: 0 auto;
+        height: 349px;
+        overflow: auto;
+        margin-top: 20px;
+        width: 45%;
+    } */

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../static/css/affiche_user.css">
+    <script src="../static/js/affiche_user.js" defer></script>
+    <title>Groupe6_Flask</title>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="collapse" id="navbarNav" href="#">
+            <div>
+                <a class="navbar-brand" href="#">G6 Flask Blog</a>
+            </div>
+            <div>
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">HOME</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <h1>Welcome to G6 Flask Blog</h1>
+    <div class="container border">
+        <h1 class="h1user">Users </h1>
+        <button class="btnNewUser" onclick="addNeuwUserFuction()"> <strong> New User +</strong></button>
+
+    </div>
+    <div class="users">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody class=" user-body ">
+            </tbody>
+
+        </table>
+
+    </div>
+
+    <!-- add new user form -->
+    <div class="newUser">
+        <button class="btnAnnullNewUser" onclick="annulNeuwUserFuction()"> <strong>X</strong></button>
+        <h1>Add New User</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody class=" detail-user_body ">
+                <form method="POST">
+                    <div>
+                        <tr>
+                            <td>name<input class="name" value=""></td>
+                            <td>username<input class="username" value=""></td>
+                            <td>email<input class="email" value=""></td>
+                            <td>phone<input class="phone" value=""></td>
+                        </tr>
+                        <tr>
+                            <td>website<input class="website" value=""></td>
+                            <td>address<input class="address" value=""></td>
+                            <td>suite<input class="suite" value=""></td>
+                            <td>city<input class="city" value=""></td>
+                        </tr>
+                        <tr>
+                            <td>company_name<input class="company_name" value=""></td>
+                            <td>zipcode<input class="zipcode" value=""></td>
+                            <td>catchPhrase<input class="catchPhrase" value=""></td>
+                            <td>bs<input class="bs" value=""></td>
+                        </tr>
+
+                        <td><button class="addNewUser_btn">ADD</button></td>
+
+                    </div>
+                </form>
+            </tbody>
+
+        </table>
+        <table></table>
+
+    </div>
+
+    <!-- formulaire détail user -->
+    <div class="detailUserDiv">
+        <button class="btnDetailNewUser" onclick="annulDetailUserFuction()"> <strong> X</strong></button>
+        <h1 class="detail_user"> Detail User </h1>
+        <h1 class="edit_user">Edit User </h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody class=" detail-user_body ">
+                <div>
+                    <form action="" method="GET">
+                        <tr>
+                            <td><input class="detail_btn" id="name" value="name" readonly></td>
+                            <td><input class="detail_btn" id="username" value="username" readonly></td>
+                            <td><input class="detail_btn" id="email" value="email" readonly></td>
+                            <td><input class="detail_btn" id="phone" value="phone" readonly></td>
+                        </tr>
+                        <tr>
+                            <td><input class="detail_btn" id="website" value="website" readonly></td>
+                            <td><input class="detail_btn" id="address" value="address" readonly></td>
+                            <td><input class="detail_btn" id="suite" value="suite" readonly></td>
+                            <td><input class="detail_btn" id="city" value="city" readonly></td>
+                        </tr>
+                        <tr>
+                            <td><input class="detail_btn" id="company_name" value="company_name" readonly></td>
+                            <td><input class="detail_btn" id="zipcode" value="zipcode" readonly></td>
+                            <td><input class="detail_btn" id="catchPhrase" value="catchPhrase" readonly></td>
+                            <td><input class="detail_btn" id="bs" value="bs" readonly></td>
+                        </tr>
+
+                        <td><button class="edit_register">Enregistrer</button></td>
+                    </form>
+                </div>
+                <div></div>
+            </tbody>
+
+        </table>
+
+
+    </div>
+</body>
+
+</html>
